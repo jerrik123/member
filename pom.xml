@@ -42,6 +42,7 @@
 		<module>member-service-spi</module>
 		<module>member-web</module>
 		<module>member-service-impl</module>
+		<module>member-persistence</module>
 	</modules>
 
 	<!-- 依赖管理 -->
@@ -59,13 +60,11 @@
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-core</artifactId>
 				<version>${spring.version}</version>
-				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-web</artifactId>
 				<version>${spring.version}</version>
-				<scope>compile</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>

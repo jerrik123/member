@@ -2,6 +2,8 @@ package com.mangocity.mbr;
 
 import java.io.Serializable;
 
+import com.google.common.base.Objects;
+
 /**
  * @ClassName: Mbr.java
  * @Description: TODO
@@ -12,9 +14,9 @@ import java.io.Serializable;
 public class Mbr implements Serializable {
 
 	private Long id;
-	
+
 	private String name;
-	
+
 	private String gender;
 
 	public Long getId() {
@@ -41,9 +43,24 @@ public class Mbr implements Serializable {
 		this.gender = gender;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public String toString() {
-		return "Mbr [id=" + id + ", name=" + name + ", gender=" + gender + "]";
+		return Objects.toStringHelper(this).add("id", id).add("name", name).add("gender", gender).toString();
 	}
-	
+
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(id, name, gender);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Mbr) {
+			Mbr mbr = (Mbr) obj;
+			return Objects.equal(this.name, mbr.name) && Objects.equal(this.gender, mbr.gender);
+		}
+		return false;
+	}
+
 }

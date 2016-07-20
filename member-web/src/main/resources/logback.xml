@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property file="${logback.properties.file}" />
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!-- 综合时间与大小的滚动策略，先按小时滚动，小时内的文件大于100mb时再按大小滚动 -->
+    <appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/data/logs/mango-member-controller/mango-member-controller.log.tmp</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/data/logs/mango-member-controller/mango-member-controller-%d{yyyy-MM-dd_HH}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${file.log.pattern}</pattern>
+        </encoder>
+    </appender>
+     
+    <!-- 综合时间与大小的滚动策略，先按小时滚动，小时内的文件大于10mb时再按大小滚动 -->
+    <appender name="serviceErrorLogFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/data/logs/mango-member-controller/mango-member-controller-error.log.tmp</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/data/logs/mango-member-controller/mango-member-controller-%d{yyyy-MM-dd_HH}.%i.error.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${file.error.log.pattern}</pattern>
+        </encoder>
+    </appender>
+     
+    <logger name="serviceErrorlog" level="ERROR" additivity="false">
+        <appender-ref ref="serviceErrorLogFile" />
+    </logger>
+
+    <!-- project default level -->
+    <logger name="com.mango" level="${logback.log.level}" />
+    <root level="${logback.log.level}">
+        ${logback.log.console}
+        <appender-ref ref="rollingFile" />
+    </root>
+     
+</configuration>

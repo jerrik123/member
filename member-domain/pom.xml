@@ -9,6 +9,13 @@
 	<artifactId>member-domain</artifactId>
 	<packaging>jar</packaging>
 
+	<dependencies>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+	</dependencies>
+
 	<distributionManagement>
 		<repository>
 			<id>releases</id>
