@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">  
+<configuration>  
+    <settings>  
+        <setting name="cacheEnabled" value="true" />    
+        <setting name="lazyLoadingEnabled" value="true" />   
+        <setting name="aggressiveLazyLoading" value="false" />  
+        <setting name="multipleResultSetsEnabled" value="true" />  
+        <setting name="useColumnLabel" value="true" />   
+        <setting name="useGeneratedKeys" value="true" />   
+        <setting name="autoMappingBehavior" value="FULL" />  
+        <setting name="defaultExecutorType" value="SIMPLE" />  
+                <!-- 数据库超过25000秒仍未响应则超时 -->  
+        <setting name="defaultStatementTimeout" value="25000" />  
+    </settings>
+     <typeAliases>  
+       <typeAlias type="com.mangocity.model.Charge" alias="Charge"/>
+       <typeAlias type="com.mangocity.model.Contact" alias="Contact"/>
+       <typeAlias type="com.mangocity.model.Delivery" alias="Delivery"/>
+       <typeAlias type="com.mangocity.model.Insurance" alias="Insurance"/>
+       <typeAlias type="com.mangocity.model.Order" alias="Order"/>
+       <typeAlias type="com.mangocity.model.OrderItem" alias="OrderItem"/>
+       <typeAlias type="com.mangocity.model.Passenger" alias="Passenger"/>
+       <typeAlias type="com.mangocity.model.Ticket" alias="Ticket"/>
+       <typeAlias type="com.mangocity.model.TrainInvoice" alias="TrainInvoice"/>
+       <typeAlias type="com.mangocity.model.TrainPay" alias="TrainPay"/>
+       <typeAlias type="com.mangocity.model.TrainPayDetail" alias="TrainPayDetail"/>
+       <typeAlias type="com.mangocity.model.TrainPayInfo" alias="TrainPayInfo"/>
+       <typeAlias type="com.mangocity.model.TrainPayOrderItem" alias="TrainPayOrderItem"/> 
+       <typeAlias type="com.mangocity.model.Purchase" alias="Purchase"/>
+       <typeAlias type="com.mangocity.model.PurchaseDetailInfo" alias="PurchaseDetailInfo"/> 
+       <typeAlias type="com.mangocity.model.PurchaseItem" alias="PurchaseItem"/>
+       <typeAlias type="com.mangocity.model.Account" alias="Account"/>
+       <typeAlias type="com.mangocity.model.FrequentTraveller" alias="FrequentTraveller"/>
+       <typeAlias type="com.mangocity.model.MessageTemplate" alias="MessageTemplate"/>
+       <typeAlias type="com.mangocity.model.Applicant" alias="Applicant"/>
+       <typeAlias type="com.mangocity.model.MessageReceiver" alias="MessageReceiver"/>
+    </typeAliases>   
+</configuration>  
