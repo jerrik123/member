@@ -12,6 +12,7 @@ import com.mangocity.mbr.Mbr;
 public class MbrServiceImpl implements IMbrService {
 
 	public int addMbr(Mbr mbr) {
+		System.out.println("MbrServiceImpl addMbr begin{} detail info is: " + mbr);
 		return 0;
 	}
 
